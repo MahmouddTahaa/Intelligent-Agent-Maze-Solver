@@ -4,7 +4,7 @@ from timeit import timeit
 
 
 Maze = maze(20, 20)
-Maze.CreateMaze(loopPercent=70)
+Maze.CreateMaze(loopPercent=85)
 
 e_search, e_rev, e_path = a_star_e(Maze)
 m_search, m_rev, m_path = a_star_m(Maze)
@@ -26,13 +26,13 @@ Maze.tracePath({a2: e_search}, delay=50)
 Maze.tracePath({a3: m_search}, delay=50)
 
 
-t1=timeit(stmt='a_star_e(Maze)', number=1000, globals=globals())
-t2=timeit(stmt='a_star_m(Maze)', number=1000, globals=globals())
-t3=timeit(stmt='a_star_c(Maze)', number=1000, globals=globals())
+t1=timeit(stmt='a_star_c(Maze)', number=1000, globals=globals())
+t2=timeit(stmt='a_star_e(Maze)', number=1000, globals=globals())
+t3=timeit(stmt='a_star_m(Maze)', number=1000, globals=globals())
 
-textLabel(Maze,'Chebyshev Time', t3)
-textLabel(Maze,'Euclidean Time', t1)
-textLabel(Maze,'Manhattan Time', t2)
+textLabel(Maze,'Chebyshev Time', t1)
+textLabel(Maze,'Euclidean Time', t2)
+textLabel(Maze,'Manhattan Time', t3)
 
 
 Maze.run()

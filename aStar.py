@@ -27,7 +27,7 @@ def h_c(node1, node2):
     return chebyshev_distance
 
 
-def a_star_e(maze, start: tuple=None) -> dict:
+def a_star_e(maze) -> dict:
     maze_nodes = maze.grid
     initial_state = (maze.rows, maze.cols)
     goal = (1, 1)
@@ -79,7 +79,7 @@ def a_star_e(maze, start: tuple=None) -> dict:
     return search_path, reverse_path, path
 
 
-def a_star_m(maze, start: tuple=None) -> dict:
+def a_star_m(maze) -> dict:
     maze_nodes = maze.grid
     initial_state = (maze.rows, maze.cols)
     goal = (1, 1)
@@ -131,7 +131,7 @@ def a_star_m(maze, start: tuple=None) -> dict:
     return search_path, reverse_path, path
 
 
-def a_star_c(maze, start: tuple=None) -> dict:
+def a_star_c(maze) -> dict:
     maze_nodes = maze.grid
     initial_state = (maze.rows, maze.cols)
     goal = (1, 1)
