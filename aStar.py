@@ -197,9 +197,8 @@ if __name__ == '__main__':
     search_label = TextLabel(m, "Searching Steps", len(seacrhing_path))
     shortest_path_label = TextLabel(m, "Shortest Path Steps", len(path)+1)
 
-    m.tracePath({a: seacrhing_path},showMarked=True, delay=10)
-    m.tracePath({b: reverse_path}, delay=10)
-    m.tracePath({c: path}, delay=15)
+    m.tracePath({a: seacrhing_path},showMarked=True, delay=70)
+    m.tracePath({b: reverse_path}, delay=70)
+    m.tracePath({c: path}, delay=70)
 
     m.run()
-

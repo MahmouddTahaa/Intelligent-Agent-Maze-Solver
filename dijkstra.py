@@ -54,25 +54,21 @@ def dijkstra(graph, *weights):
     return explored[goal], searching_path, reversed_path, shortest_path
 
 
-def Main(size=(15, 25)) -> None:
+if __name__ == '__main__':
     # maze creation
-    maze_size = size
+    maze_size = (10, 10)
     Maze = maze(maze_size[0], maze_size[1])
-    maze.CreateMaze(Maze, loopPercent=0, saveMaze=True)
+    maze.CreateMaze(Maze, loopPercent=40, saveMaze=True)
 
     # specifying the location and cost of some nodes (nodes with edge weight > 1)
     c1 = agent(Maze, 5, 4, color=COLOR.red)
-    c2 = agent(Maze, 13, 10, color=COLOR.red)
-    c3 = agent(Maze, 1, 25, color=COLOR.red)
-    c4 = agent(Maze, 5, 19, color=COLOR.red)
-    c5 = agent(Maze, 3, 22, color=COLOR.red)
-    c6 = agent(Maze, 15, 7, color=COLOR.red)
+    c2 = agent(Maze, 1, 2, color=COLOR.red)
+    c3 = agent(Maze, 1, 5, color=COLOR.red)
+
     c1.cost = 50
     c2.cost = 10
     c3.cost = 20
-    c4.cost = 300
-    c5.cost = 4
-    c6.cost = 7
+
 
     cost, seacrhing_path, reverse_path, shortest_path = dijkstra(Maze, c1, c2, c3)
 
@@ -87,10 +83,8 @@ def Main(size=(15, 25)) -> None:
     cst = TextLabel(Maze, "Total Cost Of the Shortest Path", cost)
 
     # animating the searching path, reversed path, and shortest path
-    Maze.tracePath({a1: seacrhing_path}, delay=15)
-    Maze.tracePath({a2: reverse_path}, delay=15)
-    Maze.tracePath({a3: shortest_path}, delay=20)
+    Maze.tracePath({a1: seacrhing_path}, delay=150)
+    Maze.tracePath({a2: reverse_path}, delay=150)
+    Maze.tracePath({a3: shortest_path}, delay=200)
 
     Maze.run()
-
-Main()
